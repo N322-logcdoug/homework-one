@@ -1,0 +1,7 @@
+{
+  "name": "homeworkOne",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
