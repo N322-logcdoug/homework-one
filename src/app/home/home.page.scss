@@ -25,3 +25,29 @@
 #container a {
   text-decoration: none;
 }
+
+.mod-card {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+  }
+
+  ion-card-subtitle {
+    margin-bottom: 10px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .mod-card {
+    flex-direction: column;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.mod-content{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+    img {
+        width: 300px;
+        border-radius: 10px;
+    }
+
+    .mod-info {
+        margin-left: 20px;
+        p {
+            max-width: 800px;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{mod.modTitle}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        routerLink="/home"
+        routerDirection="forward"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mod-content">
+    <img src="{{mod.modIcon}}" alt="" />
+    <div class="mod-info">
+      <h1>{{mod.modTitle}}</h1>
+      <h3>Author: {{mod.modAuthor}}</h3>
+      <p>{{mod.modInfo}}</p>
+    </div>
+  </div>
+</ion-content>

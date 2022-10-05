@@ -1,20 +1,85 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Mods List </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" shape="round" id="open-modal">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-card
+    *ngFor="let mod of mods"
+    routerLink="/details/{{mod.id}}"
+    routerDirection="forward"
+  >
+    <div class="mod-card">
+      <ion-card-header>
+        <img src="{{mod.modIcon}}" alt="" />
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-title> {{mod.modTitle}} </ion-card-title>
+        <ion-card-subtitle> {{mod.modAuthor}} </ion-card-subtitle>
+        {{mod.modShort}}
+      </ion-card-content>
+    </div>
+  </ion-card>
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Add Mod</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Enter Title</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Title"
+            [(ngModel)]="title"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter Author</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Author"
+            [(ngModel)]="author"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enter Icon URL</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Icon URL"
+            [(ngModel)]="iconURL"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Short Description</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Short Description"
+            [(ngModel)]="short"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Long Description</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Long Description"
+            [(ngModel)]="info"
+          ></ion-input>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
